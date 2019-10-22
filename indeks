@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="arfan" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<style>
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+/*  position: absolute;*/
+  width: 100%;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display:flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+/*  flex: 25%;*/
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  /*flex: 50%;*/
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  /*flex: 75%;*/
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+/* Full-width input fields */
+input[type=text] {
+  width: 81%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #4CAF50;
+  color: white;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ddd;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+div.Keranjang{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+
+div.keranjang input[type=text] {
+  width: 25px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 95%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+label input {margin-top: 10px;}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  float: left;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  display: inline-block;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card img:hover{
+  opacity: 0,9;
+  size: 110%;
+}
+.card button:hover {
+  opacity: 0.7;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+
+</style>
+</head>
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<body>
+
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="https://cardtoko.000webhostapp.com/index.php" target="_blank">Contact</a>
+  <a href="#about">About</a>
+</div>
+<div style="margin='16px';"></div><hr style="color: rgba(0,0,0,F);">
+<!-- ||||||||||||||||||||||||||||||||||||||^navbar^||||||||||||||||||||||||||vitemv||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<div class="item cf">
+  
+  <div class="card">
+    <img src="https://drive.google.com/uc?export=view&id=1Etzds9C-oWu_NNJSwxjoJHPyUEgzyzo7" alt="Denim Jeans" style="width:100%">
+    <h1>Taulored </h1>
+    <p class="price">Rp 1498</p>
+    <p>Some tet mollit anim id est laborum..</p>
+    <p><button >Add to Cart</button></p>
+  </div>
+
+   <div class="card">
+    <img src="https://drive.google.com/uc?export=view&id=11E0wf09Z1__Bsc6sajAVOwiCgNIpnP_p" alt="barangw" style="width:100%">
+    <h1>barangw</h1>
+    <p class="price">RP 9823</p>
+    <p>yidgasKJD</p>
+    <p><button >Add to Cart</button></p>
+  </div>
+
+  <div class="card">
+    <img src="https://drive.google.com/uc?export=view&id=11E0wf09Z1__Bsc6sajAVOwiCgNIpnP_p" alt="cerpen" style="width:100%">
+    <h1>cerpen</h1>
+    <p class="price">RP 90823</p>
+    <p>yidgasKJD</p>
+    <p><button>Add to Cart</button></p>
+  </div>
+
+
+  <div class="card">
+    <img src="https://drive.google.com/uc?export=view&id=1Etzds9C-oWu_NNJSwxjoJHPyUEgzyzo7" alt="Denim Jeans" style="width:100%">
+    <h1>Tailored </h1>
+    <p class="price">Rp 1499</p>
+    <p>Some text about the jeans..</p>
+    <p><button >Add to Cart</button></p>
+  </div>
+
+  <div class="card" style="display: block; clear: left;"></div>
+
+</div>
+<br>
+
+<div id="id01" class="modal">
+    <form class="modal-content animate">
+      <div class="container">
+        <div class="loader"></div>
+      </div>
+    </form>
+</div>
+<!-- |||||||||||||||||||||||||||||||||||||||||vcheckoutv||||||||||||||||^item^|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+
+        <div class="row">
+          <div class="col-50 pembeli">
+            <h3>Billing</h3>
+            <label for="fname"><i class="fa fa-user"></i> Nama Pembeli</label>
+            <input type="text" id="fname" name="firstname" placeholder="Rasyid Arfan">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="221910116@stis.ac.id">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Kelas</label>
+            <!-- <input type="text" id="adr" name="address" placeholder="2KS5"> -->
+            <!-- <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York"> -->
+
+            <div class="row">
+              <div class="col-50">
+                  <select name="tingkat">
+                    <option value="0">tingkat</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+              </div>
+              <div class="col-50">
+                  <select name="prodi">
+                    <option value="0">prodi</option>
+                    <option value="1">ST</option>
+                    <option value="2">KS</option>
+                    <option value="3">D3</option>
+                    <option value="4">SE</option>
+                    <option value="5">SK</option>
+                    <option value="6">SI</option>
+                    <option value="7">SD</option>
+                  </select>
+              </div>
+              <div class="col-50">
+                  <select name="kelas">
+                    <option value="0">kelas</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                  </select>
+              </div>
+          </div>
+
+        <label>
+          <input type="checkbox" id="chk" name="sameadr"> Shipping address same as billing
+        </label>
+
+        <div class="row"><hr><br>
+          <div class="col-50 penerima">
+            <h3>Shipping</h3>
+            <label for="fname"><i class="fa fa-user"></i> Nama Penerima</label>
+            <input type="text" class="name" name="firstname" placeholder="Rasyid Arfan">
+            <label for="pesan"><i class="fa fa-book"></i> pesan</label>
+            <input type="text" id="pesan" name="pesan" placeholder="Berpesan">
+
+            <label for="adr"><i class="fa fa-address-card-o"></i> Kelas</label>
+            <div class="row">
+              <div class="col-50">
+                  <select name="tingkat">
+                    <option value="0">tingkat</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+              </div>
+              <div class="col-50">
+                  <select name="prodi">
+                    <option value="0">prodi</option>
+                    <option value="1">ST</option>
+                    <option value="2">KS</option>
+                    <option value="3">D3</option>
+                    <option value="4">SE</option>
+                    <option value="5">SK</option>
+                    <option value="6">SI</option>
+                    <option value="7">SD</option>
+                  </select>
+              </div>
+              <div class="col-50">
+                  <select name="kelas">
+                    <option value="0">kelas</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                  </select>
+              </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+<!-- ||||||||||||||||||||||||||||||||||||keranjang|||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+  <div class="keranjang col-25" style="flex: 50%;">
+    <div class="container">
+      <h4>Keranjang  
+        <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>4</b>
+        </span>
+      </h4>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+    </div>
+  </div>
+  <hr>
+  <form class="block">
+        <hr><input type="submit" value="Continue to checkout" class="cf block btn">
+  </form>
+
+</div>
+
+<!-- |||||||||||||||||||||||||||script|||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<script>
+var item=[[barang="barang",harga=0,jumlah=0]];
+var jumlah =0;
+
+  const check = document.getElementById('chk');
+  const shipping = document.querySelector('div.penerima');
+  const checkout =document.querySelector('.keranjang .container');
+
+
+  check.addEventListener('click',function(){
+    if(check.checked){
+      shipping.style.display="none";
+    }else{
+      shipping.style.display="block";
+    }
+  });
+
+const tambah =document.querySelectorAll('div.card p button');
+
+
+function masuk(){
+  document.querySelector('div.item').style.display="none";
+  setTimeout(function(){
+    document.querySelector('div.item').style.display="block";
+  },500);
+}
+
+tambah.forEach(function(el){
+  el.addEventListener('click',function(e){
+
+masuk();
+
+    let keranjang =["barang",0,0];
+    let b=false;
+    keranjang[0]=e.target.parentElement.parentElement.getElementsByTagName('h1')[0].innerText;
+    keranjang[1]=e.target.parentElement.parentElement.querySelector('p.price').innerText;
+    keranjang[2]+=1;
+    keranjang[1]=parseInt(keranjang[1].slice(3));
+
+   for (var i = 0; i < item.length; i++) {
+    if(item[i][0]==keranjang[0]){
+      b=true;
+      item[i][2]+=1;
+      e.target.innerText=e.target.innerText.slice(0,11);
+      e.target.innerText+=" ("+item[i][2]+")";
+    };
+   }
+
+    if(!b){
+      item.push(keranjang);
+      e.target.innerText+=" ("+1+")";
+    };
+    jumlah=0;
+    for (var i = 0; i < item.length; i++) {
+      jumlah+= item[i][1]*item[i][2];
+    }
+
+ckot();
+  });
+});
+
+function ckot(){
+  checkout.querySelector('.price b').innerText=item.length-1;
+  checkout.querySelector('p span.price b').innerText="Rp "+jumlah;
+};
+ 
+ ckot();
+</script>
+</body>
+</html>
