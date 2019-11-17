@@ -63,10 +63,10 @@ function pesanClicked() {
     send.push();
     senditem="";
     send.forEach(function(item){
-        senditem += '*=>'+item[0]+'('+item[2]+')*%0A';
+        senditem += '*=>'+item[0]+'('+item[2]+')%20'+item[1]+'*%0A';
     });
 
-    let sendwa =nowa+"?text=_Assalamualaikum%20kak_%0ASaya%20mau%20pesan%0A"+senditem.replace(' ','%20')+"Jumlah%20%3A%20"+total.replace(' ','%20')+"%0A%0A";
+    let sendwa =nowa+"?text=_Assalamualaikum%20kak_%0ASaya%20mau%20pesan%0A"+senditem.replace(' ','%20')+"Jumlah%20%3A%20"+total.replace(' ','%20')";
 
     var nama = billing.querySelector('input#nama').value;
     if(check.checked){
