@@ -1,0 +1,2 @@
+# toko
+sibuat untuk bertahan
