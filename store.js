@@ -24,6 +24,11 @@ function ready() {
         var button = addToCartButtons[i]
         button.addEventListener('click', addToCartClicked)
     }
+    var addToCartItem = document.getElementsByClassName('shop-item')
+    for (var i = 0; i < addToCartItem.length; i++) {
+        var button = addToCartItem[i]
+        button.addEventListener('click', addItemToCartClicked)
+    }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', pesanClicked);
     document.getElementsByClassName('btn-purchase')[1].addEventListener('click', openNav);
@@ -103,6 +108,14 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    addItemToCart(title, price, imageSrc)
+    updateCartTotal()
+}
+
+function addItemToCartClicked(event) {
+    var title = event.target.getElementsByClassName('shop-item-title')[0].innerText
+    var price = event.target.getElementsByClassName('shop-item-price')[0].innerText
+    var imageSrc = event.target.getElementsByClassName('shop-item-image')[0].src
     addItemToCart(title, price, imageSrc)
     updateCartTotal()
 }
