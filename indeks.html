@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Danampul</title>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="styles.css" />
+        <script src="store.js" async></script>
+    </head>
+    <body>
+        <header class="main-header"><!-- 
+            <h1 class="band-name band-name-large">Danampul</h1> -->
+            <img class="banner" src="DAnampul.png">
+        </header>
+        <section class="container content-section">
+
+            <div class="shop-items">
+
+<!-- ______________________________________________________________________________________________________________________________ -->
+                    
+    <div class="shop-item">
+        <span class="shop-item-title">SILVERQUEN</span><p> Besar</p>
+        <img class="shop-item-image" src="https://drive.google.com/uc?export=view&id=12bq6lx_6JWpCvwtrjnDO_9Kx4Uqn19EI">
+        <div class="shop-item-details">
+            <span>IDR </span>
+            <span class="shop-item-price">15000</span>
+            <button class="btn btn-primary shop-item-button" type="button">Pesan</button>
+        </div>
+    </div>
+
+       <div class="shop-item">
+        <span class="shop-item-title">Silverquen</span><p> Kecil</p>
+        <img class="shop-item-image" src="https://drive.google.com/uc?export=view&id=12bq6lx_6JWpCvwtrjnDO_9Kx4Uqn19EI">
+        <div class="shop-item-details">
+            <span>IDR </span>
+            <span class="shop-item-price">10000</span>
+            <button class="btn btn-primary shop-item-button" type="button">Pesan</button>
+        </div>
+    </div>
+  
+    <div class="shop-item">
+        <span class="shop-item-title">CHOCOPIE</span>
+        <img class="shop-item-image" src="https://drive.google.com/uc?export=view&id=1Pl7mf_R9V1LnEcgwAz6gxkI6eRuRX-1F">
+        <div class="shop-item-details">
+            <span>IDR </span>
+            <span class="shop-item-price">3000</span>
+            <button class="btn btn-primary shop-item-button" type="button">Pesan</button>
+        </div>
+    </div>
+
+    <div class="shop-item">
+        <span class="shop-item-title">OAT</span><p> 3 biji</p>
+        <img class="shop-item-image" src="https://drive.google.com/uc?export=view&id=1wgmFhkdEswq3u6JHGWs7lvA9DyTLWImB">
+        <div class="shop-item-details">
+            <span>IDR </span>
+            <span class="shop-item-price">3500</span>
+            <button class="btn btn-primary shop-item-button" type="button">Pesan</button>
+        </div>
+    </div>    
+ 
+    <div class="shop-item">
+        <span class="shop-item-title">BENG-BENG</span>
+        <img class="shop-item-image" src="https://drive.google.com/uc?export=view&id=1sw-Y6y5TK7wEB1gQPtPCkM4k7qYToe0M">
+        <div class="shop-item-details">
+            <span>IDR </span>
+            <span class="shop-item-price">2500</span>
+            <button class="btn btn-primary shop-item-button" type="button">Pesan</button>
+        </div>
+    </div>
+  
+
+    <div class="shop-item">
+        <span class="shop-item-title">NEXTAR</span>
+        <img class="shop-item-image" src="https://drive.google.com/uc?export=view&id=1AoTy3-KtzRdSlYt-d16yaVgO2KiIfDXl">
+        <div class="shop-item-details">
+            <span>IDR </span>
+            <span class="shop-item-price">2500</span>
+            <button class="btn btn-primary shop-item-button" type="button">Pesan</button>
+        </div>
+    </div>
+        
+  
+    <div class="shop-item">
+        <span class="shop-item-title">ROKA</span><p> 5 biji</p>
+        <img class="shop-item-image" src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium/kepomart_apollo-cokelat-roka-wafer-80-pcs_full01.jpg">
+        <div class="shop-item-details">
+            <span>IDR </span>
+            <span class="shop-item-price">5000</span>
+            <button class="btn btn-primary shop-item-button" type="button">Pesan</button>
+        </div>
+    </div>
+      
+
+<!-- ______________________________________________________________________________________________________________________________ -->
+            </div>
+        </section>
+
+        <section class="container content-section">
+            <h2 class="section-header">KERANJANG</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price"></span>
+            </div>
+
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                <form action="/action_page.php">
+                <label for="fname"><i class="fa fa-user"></i> Nama Pembeli</label>
+                <input type="text" id="nama" name="firstname" placeholder="Rasyid Arfan">
+                <br>
+                <span>
+                    <input type="checkbox" id="chk" name="sameadr"> Pembeli sama dengan penerima
+                </span>
+                <div class="penerima">
+                    <label for="fname"><i class="fa fa-user"></i> Nama Penerima</label>
+                    <input type="text" class="nama" name="firstname" placeholder="Arfan Rasyid">
+                </div>
+                <label for="adr"><i class="fa fa-address-card-o"></i> Kelas</label>            
+                <input type="text" id="kelas" name="kelas" placeholder="1KS2">
+                <label for="Pesan"><i class="fa fa-envelope"></i> Pesan</label>
+                <input type="text" id="pesan" name="pesan" placeholder="aku UAS sama kamu">
+                <br><br><button class="btn btn-primary btn-purchase" type="button">PESAN</button>
+                </form><br>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-purchase" type="button">KONFIRMASI</button>
+        </section>
+        
+    </body>
+</html>
