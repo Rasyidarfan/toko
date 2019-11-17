@@ -77,14 +77,14 @@ function pesanClicked() {
     var kelas = billing.querySelector('input#kelas').value;
     var pesan = billing.querySelector('input#pesan').value;
 
-    let sendform = "usp=pp_url&entry.1267846692="+nama+"&entry.2034809671="+penerima+"&entry.562212773="+kelas+"&entry.564560779="+pesan+"&entry.138549484="+senditem+"&entry.2030230827="+total;
+//     let sendform = "usp=pp_url&entry.1267846692="+nama+"&entry.2034809671="+penerima+"&entry.562212773="+kelas+"&entry.564560779="+pesan+"&entry.138549484="+senditem+"&entry.2030230827="+total;
     sendwa += "Nama%20%3A%20"+nama.replace(" ","%20")+"%0APenerima%20%3A%20"+penerima.replace(" ","%20")+"%0AKelas%20%3A%20"+kelas.replace(" ","%20")+"%0APesan%20%3A%20"+pesan.replace(" ","%20")+"%0A%0A";
 
     // alert(senwa);
     // console.log(nama+penerima+kelas+pesan);
     // console.log(senditem);
     window.open("https://wa.me/"+sendwa);  //fill form
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdEs02aZeRVjhp16xoTkt1hXCJ8u_590CUryl7YgUQFl40J5w/formResponse?"+sendform);
+//     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdEs02aZeRVjhp16xoTkt1hXCJ8u_590CUryl7YgUQFl40J5w/formResponse?"+sendform);
     updateCartTotal();
     closeNav();
 }
